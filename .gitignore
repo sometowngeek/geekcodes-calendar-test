@@ -1,4 +1,3 @@
-
 .metadata
 bin/
 tmp/
@@ -54,3 +53,20 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+
+# Sonarlint
+.sonarlint/
+
+# Old files
+**/*.*-old
+
+# Gradle config
+.gradle/*
+
+
+# Config property file
+**/config.properties
+build/**
+notBuild/**
+/build/
+/.gradle/
