@@ -1,11 +1,20 @@
 package org.geekcodes.calendar.models.month;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface GMonth {
-    public void setYear(int year);
+    /**
+     * Gets holidays.
+     *
+     * @return the holidays
+     */
+    public List<LocalDate> getHolidays();
 
-    public List<Date> getHolidays();
-    public List<Date> getDates();
+    /**
+     * Gets dates.
+     *
+     * @return the dates
+     */
+    public List<LocalDate> getDates();
 }
