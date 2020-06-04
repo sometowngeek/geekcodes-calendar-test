@@ -16,14 +16,16 @@ abstract class AMonth implements GMonth {
      *
      * @param localDate the calendar
      */
-    protected abstract void setLocalDate(LocalDate localDate);
+    protected final void setLocalDate(LocalDate localDate){
+        this.localDate = LocalDate.ofEpochDay(localDate.toEpochDay());
+    }
     
     /**
      * Get calendar calendar.
      *
      * @return the calendar
      */
-    protected LocalDate getLocalDate() {
+    protected final LocalDate getLocalDate() {
         return this.localDate;
     }
 }

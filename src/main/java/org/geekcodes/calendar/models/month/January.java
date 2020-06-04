@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * The type January.
  */
-class January extends AMonth {
+final class January extends AMonth implements GMonth {
     
     /**
      * Instantiates a new January.
@@ -75,13 +75,4 @@ class January extends AMonth {
         return this.localDate.datesUntil(LocalDate.of(localDate.getYear(),2,1)).collect(Collectors.toList());
     }
     
-    /**
-     * Sets calendar.
-     *
-     * @param localDate the calendar
-     */
-    @Override
-    protected void setLocalDate(LocalDate localDate) {
-        this.localDate = LocalDate.ofEpochDay(localDate.toEpochDay());
-    }
 }

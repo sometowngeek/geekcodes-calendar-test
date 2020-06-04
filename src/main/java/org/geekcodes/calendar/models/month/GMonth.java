@@ -9,12 +9,12 @@ public interface GMonth {
      *
      * @return the holidays
      */
-    public List<LocalDate> getHolidays();
+    List<LocalDate> getHolidays();
 
     /**
      * Gets dates.
      *
      * @return the dates
      */
-    public List<LocalDate> getDates();
+    List<LocalDate> getDates();
 }
