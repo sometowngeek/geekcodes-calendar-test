@@ -3,6 +3,7 @@ package org.geekcodes.calendar.models.month;
 import org.geekcodes.calendar.utilities.DateUtility;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -18,7 +19,7 @@ final class January extends AMonth implements GMonth {
      * @param year the year
      */
     public January(int year) {
-        this.localDate = LocalDate.of(year,1,1);
+        this.localDate = LocalDate.of(year, Month.JANUARY,1);
     }
 
     /**

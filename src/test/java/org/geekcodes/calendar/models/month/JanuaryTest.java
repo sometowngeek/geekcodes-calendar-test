@@ -19,7 +19,6 @@ class JanuaryTest {
     
     public static final int             YEAR              = 2020;
     private             LocalDate       localDate         = LocalDate.of(2020, Month.JANUARY, 1);
-    private             LocalDate       expectedLocalDate = LocalDate.of(YEAR, Month.JANUARY, 10);
     private             List<LocalDate> januaryDates      = LocalDate.of(YEAR, Month.JANUARY, 1).datesUntil(LocalDate.of(2020, Month.FEBRUARY, 1)).collect(Collectors.toList());
     private             January         january           = new January(YEAR);
     
