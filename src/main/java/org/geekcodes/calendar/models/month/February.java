@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
  */
 public class February extends AMonth implements GMonth {
     
+    private February() {}
+    
     /**
      * Instantiates a new February.
      *
@@ -34,6 +36,19 @@ public class February extends AMonth implements GMonth {
         holidays.add(getPresidentsDay());
         
         return holidays;
+    }
+    
+    /**
+     * Get holidays list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getHolidays(int year){
+        February february = new February(year);
+        
+        return february.getHolidays();
     }
     
     /**

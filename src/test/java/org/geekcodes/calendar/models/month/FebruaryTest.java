@@ -51,6 +51,15 @@ class FebruaryTest {
         Assertions.assertEquals(expectedDates, february.getHolidays());
     }
     
+    @Test
+    void testGetHolidaysStatic(){
+        List<LocalDate> expectedDates = new ArrayList<>();
+        expectedDates.add(LocalDate.of(YEAR, Month.FEBRUARY, 17));
+    
+        Assertions.assertEquals(expectedDates, February.getHolidays(YEAR));
+    }
+    
+    
     /**
      * Test get presidents day.
      */

@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
  */
 final class January extends AMonth implements GMonth {
     
+    private January() {}
+    
     /**
      * Instantiates a new January.
      *
