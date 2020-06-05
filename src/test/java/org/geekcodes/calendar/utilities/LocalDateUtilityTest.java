@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.time.Month;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class DateUtilityTest {
+class LocalDateUtilityTest {
     private LocalDate localDate = LocalDate.of(2020, Month.JANUARY, 1);
     
     @BeforeEach
@@ -27,42 +27,50 @@ class DateUtilityTest {
     @Test
     @Order(1)
     void testGetDaysUntilSunday() {
-        Assertions.assertEquals(4, DateUtility.getDaysUntilSunday(localDate));
+        Assertions.assertEquals(4, LocalDateUtility.getDaysUntilSunday(localDate));
     }
     
     @Test
     @Order(2)
     void testGetDaysUntilMonday() {
-        Assertions.assertEquals(5, DateUtility.getDaysUntilMonday(localDate));
+        Assertions.assertEquals(5, LocalDateUtility.getDaysUntilMonday(localDate));
     }
     
     @Test
     @Order(3)
     void testGetDaysUntilTuesday() {
-        Assertions.assertEquals(6, DateUtility.getDaysUntilTuesday(localDate));
+        Assertions.assertEquals(6, LocalDateUtility.getDaysUntilTuesday(localDate));
     }
     
     @Test
     @Order(4)
     void testGetDaysUntilWednesday() {
-        Assertions.assertEquals(0, DateUtility.getDaysUntilWednesday(localDate));
+        Assertions.assertEquals(0, LocalDateUtility.getDaysUntilWednesday(localDate));
     }
     
     @Test
     @Order(5)
     void testGetDaysUntilThursday() {
-        Assertions.assertEquals(1, DateUtility.getDaysUntilThursday(localDate));
+        Assertions.assertEquals(1, LocalDateUtility.getDaysUntilThursday(localDate));
     }
     
     @Test
     @Order(6)
     void testGetDaysUntilFriday() {
-        Assertions.assertEquals(2, DateUtility.getDaysUntilFriday(localDate));
+        Assertions.assertEquals(2, LocalDateUtility.getDaysUntilFriday(localDate));
     }
     
     @Test
     @Order(7)
     void testGetDaysUntilSaturday() {
-        Assertions.assertEquals(3, DateUtility.getDaysUntilSaturday(localDate));
+        Assertions.assertEquals(3, LocalDateUtility.getDaysUntilSaturday(localDate));
+    }
+    
+    @Test
+    @Order(8)
+    void getDaysUntilPreviousSunday(){
+        LocalDate ld = localDate.plusDays(6);
+        System.out.printf("%s %s", ld.getDayOfWeek(), ld);
+        Assertions.assertEquals(2, LocalDateUtility.getDaysUntilPreviousSunday(ld));
     }
 }

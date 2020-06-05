@@ -1,6 +1,6 @@
 package org.geekcodes.calendar.models.month;
 
-import org.geekcodes.calendar.utilities.DateUtility;
+import org.geekcodes.calendar.utilities.LocalDateUtility;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -57,7 +57,7 @@ public class February extends AMonth implements IMonth {
      * @return the presidents day
      */
     public LocalDate getPresidentsDay() {
-        long daysToAdd = DateUtility.getDaysUntilMonday(this.localDate);
+        long daysToAdd = LocalDateUtility.getDaysUntilMonday(this.localDate);
         return this.localDate.plusDays(daysToAdd + 14);
     }
     

@@ -6,8 +6,8 @@ import java.time.LocalDate;
 /**
  * The type Calendar utility.
  */
-public class DateUtility {
-    private DateUtility() {
+public class LocalDateUtility {
+    private LocalDateUtility() {
     }
     
     /**
@@ -86,6 +86,22 @@ public class DateUtility {
     public static int getDaysUntilSaturday(LocalDate localDate) {
         return getDaysUntilX(localDate, DayOfWeek.SATURDAY);
     }
+
+    public static int getDaysUntilPreviousSunday(LocalDate localDate){
+        return getDaysUntilPreviousX(localDate, DayOfWeek.SUNDAY);
+    }
+    
+    private static int getDaysUntilPreviousX(LocalDate localDate, DayOfWeek targetDayOfWeek){
+        final DayOfWeek calendarDayOfWeek = localDate.getDayOfWeek();
+        final int       fixed             = 7 - targetDayOfWeek.getValue(); // 7 days of the week
+    
+        if (calendarDayOfWeek.getValue() > targetDayOfWeek.getValue() + 1) {
+            return calendarDayOfWeek.getValue() - targetDayOfWeek.getValue();
+        }
+    
+        return fixed - calendarDayOfWeek.getValue();
+    }
+    
     
     /**
      * Gets days until X date.

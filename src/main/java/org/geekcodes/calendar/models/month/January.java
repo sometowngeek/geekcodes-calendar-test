@@ -1,6 +1,6 @@
 package org.geekcodes.calendar.models.month;
 
-import org.geekcodes.calendar.utilities.DateUtility;
+import org.geekcodes.calendar.utilities.LocalDateUtility;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -50,7 +50,7 @@ final class January extends AMonth implements IMonth {
      * @return LocalDate the date of MLK Jr day.
      */
     protected LocalDate getMartinLutherKingJrDate(){
-        long days = DateUtility.getDaysUntilMonday(this.localDate);
+        long days = LocalDateUtility.getDaysUntilMonday(this.localDate);
         return this.localDate.plusDays(days + 14);
     }
     
