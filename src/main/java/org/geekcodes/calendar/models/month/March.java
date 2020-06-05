@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class March extends AMonth implements GMonth {
+public class March extends AMonth implements IMonth {
     
     private March() {}
     

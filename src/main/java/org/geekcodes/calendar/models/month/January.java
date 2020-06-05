@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * The type January.
  */
-final class January extends AMonth implements GMonth {
+final class January extends AMonth implements IMonth {
     
     private January() {}
     
