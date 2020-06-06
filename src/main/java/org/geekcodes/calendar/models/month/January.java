@@ -74,7 +74,7 @@ final class January extends AMonth implements Month {
      */
     @Override
     public List<LocalDate> getDates() {
-        return this.localDate.datesUntil(LocalDate.of(localDate.getYear(),2,1)).collect(Collectors.toList());
+        return this.localDate.datesUntil(LocalDate.of(localDate.getYear(),java.time.Month.FEBRUARY,1)).collect(Collectors.toList());
     }
     
 }
