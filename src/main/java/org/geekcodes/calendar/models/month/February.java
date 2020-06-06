@@ -5,14 +5,14 @@ import org.geekcodes.calendar.utilities.LocalDateUtility;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * The type February.
  */
 public class February extends AMonth implements Month {
     
-    private February() {}
+    private February() {
+    }
     
     /**
      * Instantiates a new February.
@@ -21,6 +21,19 @@ public class February extends AMonth implements Month {
      */
     public February(int year) {
         this.localDate = LocalDate.of(year, java.time.Month.FEBRUARY, 1);
+    }
+    
+    /**
+     * Get holidays list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getHolidays(int year) {
+        February february = new February(year);
+        
+        return february.getHolidays();
     }
     
     /**
@@ -38,19 +51,6 @@ public class February extends AMonth implements Month {
     }
     
     /**
-     * Get holidays list.
-     *
-     * @param year the year
-     *
-     * @return the list
-     */
-    public static List<LocalDate> getHolidays(int year){
-        February february = new February(year);
-        
-        return february.getHolidays();
-    }
-    
-    /**
      * Gets presidents day.
      *
      * @return the presidents day
@@ -60,13 +60,4 @@ public class February extends AMonth implements Month {
         return this.localDate.plusDays(daysToAdd + 14);
     }
     
-    /**
-     * Gets dates.
-     *
-     * @return the dates
-     */
-    @Override
-    public List<LocalDate> getDates() {
-        return this.localDate.datesUntil(LocalDate.of(this.localDate.getYear(), java.time.Month.MARCH, 1)).collect(Collectors.toList());
-    }
 }

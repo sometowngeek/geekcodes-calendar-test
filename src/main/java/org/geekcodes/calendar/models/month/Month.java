@@ -10,7 +10,7 @@ public interface Month {
      * @return the holidays
      */
     List<LocalDate> getHolidays();
-
+    
     /**
      * Gets dates.
      *
