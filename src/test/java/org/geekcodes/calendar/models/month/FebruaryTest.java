@@ -29,75 +29,57 @@ class FebruaryTest {
     @BeforeEach
     void setUp() {
         februaryLeapYear    = new February(LEAP_YEAR);
-        februaryNotLeapYear = new February(NOT_LEAP_YEAR);
+        februaryNotLeapYear = new February(LEAP_YEAR + 1);
+        februaryDatesLeapYear = FebruaryTest.getDates(true);
+        februaryDatesNotLeapYear = FebruaryTest.getDates(false);
+    }
+    
+    /**
+     * Gets dates.
+     *
+     * @param leapYear the leap year
+     *
+     * @return the dates
+     */
+    static List<LocalDate> getDates(boolean leapYear) {
+        List <LocalDate> dates = new ArrayList<>();
         
-        initializeLeapYearDates();
-        initializeNonLeapYearDates();
-    }
-    
-    private void initializeNonLeapYearDates() {
-        februaryDatesNotLeapYear = new ArrayList<>();
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 1));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 2));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 3));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 4));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 5));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 6));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 7));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 8));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 9));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 10));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 11));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 12));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 13));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 14));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 15));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 16));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 17));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 18));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 19));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 20));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 21));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 22));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 23));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 24));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 25));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 26));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 27));
-        februaryDatesNotLeapYear.add(LocalDate.of(NOT_LEAP_YEAR, Month.FEBRUARY, 28));
-    }
-    
-    private void initializeLeapYearDates() {
-        februaryDatesLeapYear = new ArrayList<>();
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 1));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 2));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 3));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 4));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 5));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 6));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 7));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 8));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 9));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 10));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 11));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 12));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 13));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 14));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 15));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 16));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 17));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 18));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 19));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 20));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 21));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 22));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 23));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 24));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 25));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 26));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 27));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 28));
-        februaryDatesLeapYear.add(LocalDate.of(LEAP_YEAR, Month.FEBRUARY, 29));
+        final int year = leapYear ? LEAP_YEAR : NOT_LEAP_YEAR;
+        
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 1));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 2));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 3));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 4));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 5));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 6));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 7));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 8));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 9));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 10));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 11));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 12));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 13));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 14));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 15));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 16));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 17));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 18));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 19));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 20));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 21));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 22));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 23));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 24));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 25));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 26));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 27));
+        dates.add(LocalDate.of(year, Month.FEBRUARY, 28));
+        
+        if (leapYear){
+            dates.add(LocalDate.of(year, Month.FEBRUARY, 29));
+        }
+        
+        return dates;
     }
     
     /**
@@ -118,6 +100,9 @@ class FebruaryTest {
         Assertions.assertEquals(expectedDates, februaryLeapYear.getHolidays());
     }
     
+    /**
+     * Test get holidays static.
+     */
     @Test
     void testGetHolidaysStatic() {
         List<LocalDate> expectedDates = new ArrayList<>();
