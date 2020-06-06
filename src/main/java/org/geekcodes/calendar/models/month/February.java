@@ -3,7 +3,6 @@ package org.geekcodes.calendar.models.month;
 import org.geekcodes.calendar.utilities.LocalDateUtility;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * The type February.
  */
-public class February extends AMonth implements IMonth {
+public class February extends AMonth implements Month {
     
     private February() {}
     
@@ -21,7 +20,7 @@ public class February extends AMonth implements IMonth {
      * @param year the year
      */
     public February(int year) {
-        this.localDate = LocalDate.of(year, Month.FEBRUARY, 1);
+        this.localDate = LocalDate.of(year, java.time.Month.FEBRUARY, 1);
     }
     
     /**
@@ -68,6 +67,6 @@ public class February extends AMonth implements IMonth {
      */
     @Override
     public List<LocalDate> getDates() {
-        return this.localDate.datesUntil(LocalDate.of(this.localDate.getYear(), Month.MARCH, 1)).collect(Collectors.toList());
+        return this.localDate.datesUntil(LocalDate.of(this.localDate.getYear(), java.time.Month.MARCH, 1)).collect(Collectors.toList());
     }
 }

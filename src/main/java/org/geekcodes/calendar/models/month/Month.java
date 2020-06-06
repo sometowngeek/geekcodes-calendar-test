@@ -3,7 +3,7 @@ package org.geekcodes.calendar.models.month;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface IMonth {
+public interface Month {
     /**
      * Gets holidays.
      *

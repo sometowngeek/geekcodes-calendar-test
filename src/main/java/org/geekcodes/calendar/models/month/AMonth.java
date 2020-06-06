@@ -5,7 +5,7 @@ import java.time.LocalDate;
 /**
  * The type A month.
  */
-abstract class AMonth implements IMonth {
+abstract class AMonth implements Month {
     /**
      * The Calendar.
      */

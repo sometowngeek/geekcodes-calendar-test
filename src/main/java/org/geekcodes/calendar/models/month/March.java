@@ -1,12 +1,11 @@
 package org.geekcodes.calendar.models.month;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class March extends AMonth implements IMonth {
+public class March extends AMonth implements Month {
     
     private March() {}
     
@@ -16,7 +15,7 @@ public class March extends AMonth implements IMonth {
      * @param year the year
      */
     public March(int year) {
-        this.localDate = LocalDate.of(year, Month.MARCH, 1);
+        this.localDate = LocalDate.of(year, java.time.Month.MARCH, 1);
     }
     /**
      * Gets holidays.
@@ -35,6 +34,6 @@ public class March extends AMonth implements IMonth {
      */
     @Override
     public List<LocalDate> getDates() {
-        return this.localDate.datesUntil(LocalDate.of(this.localDate.getYear(), Month.APRIL, 1)).collect(Collectors.toList());
+        return this.localDate.datesUntil(LocalDate.of(this.localDate.getYear(), java.time.Month.APRIL, 1)).collect(Collectors.toList());
     }
 }

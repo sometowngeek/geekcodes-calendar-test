@@ -3,7 +3,6 @@ package org.geekcodes.calendar.models.month;
 import org.geekcodes.calendar.utilities.LocalDateUtility;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -11,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * The type January.
  */
-final class January extends AMonth implements IMonth {
+final class January extends AMonth implements Month {
     
     private January() {}
     
@@ -21,7 +20,7 @@ final class January extends AMonth implements IMonth {
      * @param year the year
      */
     public January(int year) {
-        this.localDate = LocalDate.of(year, Month.JANUARY,1);
+        this.localDate = LocalDate.of(year, java.time.Month.JANUARY,1);
     }
 
     /**
