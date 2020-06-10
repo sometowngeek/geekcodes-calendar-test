@@ -86,20 +86,102 @@ public class LocalDateUtility {
     public static int getDaysUntilSaturday(LocalDate localDate) {
         return getDaysUntilX(localDate, DayOfWeek.SATURDAY);
     }
-
-    public static int getDaysUntilPreviousSunday(LocalDate localDate){
+    
+    /**
+     * Get days until previous sunday int.
+     *
+     * @param localDate the local date
+     *
+     * @return the int
+     */
+    public static int getDaysUntilPreviousSunday(LocalDate localDate) {
         return getDaysUntilPreviousX(localDate, DayOfWeek.SUNDAY);
     }
     
-    private static int getDaysUntilPreviousX(LocalDate localDate, DayOfWeek targetDayOfWeek){
-        final DayOfWeek calendarDayOfWeek = localDate.getDayOfWeek();
-        final int       fixed             = 7 - targetDayOfWeek.getValue(); // 7 days of the week
+    /**
+     * Get days until previous saturday int.
+     *
+     * @param localDate the local date
+     *
+     * @return the int
+     */
+    public static int getDaysUntilPreviousSaturday(LocalDate localDate) {
+        return getDaysUntilPreviousX(localDate, DayOfWeek.SATURDAY);
+    }
     
-        if (calendarDayOfWeek.getValue() > targetDayOfWeek.getValue() + 1) {
+    /**
+     * Get days until previous monday int.
+     *
+     * @param localDate the local date
+     *
+     * @return the int
+     */
+    public static int getDaysUntilPreviousMonday(LocalDate localDate) {
+        return getDaysUntilPreviousX(localDate, DayOfWeek.MONDAY);
+    }
+    
+    /**
+     * Get days until previous tuesday int.
+     *
+     * @param localDate the local date
+     *
+     * @return the int
+     */
+    public static int getDaysUntilPreviousTuesday(LocalDate localDate) {
+        return getDaysUntilPreviousX(localDate, DayOfWeek.TUESDAY);
+    }
+    
+    /**
+     * Get days until previous wednesday int.
+     *
+     * @param localDate the local date
+     *
+     * @return the int
+     */
+    public static int getDaysUntilPreviousWednesday(LocalDate localDate) {
+        return getDaysUntilPreviousX(localDate, DayOfWeek.WEDNESDAY);
+    }
+    
+    /**
+     * Get days until previous thursday int.
+     *
+     * @param localDate the local date
+     *
+     * @return the int
+     */
+    public static int getDaysUntilPreviousThursday(LocalDate localDate) {
+        return getDaysUntilPreviousX(localDate, DayOfWeek.THURSDAY);
+    }
+    
+    /**
+     * Get days until previous friday int.
+     *
+     * @param localDate the local date
+     *
+     * @return the int
+     */
+    public static int getDaysUntilPreviousFriday(LocalDate localDate) {
+        return getDaysUntilPreviousX(localDate, DayOfWeek.FRIDAY);
+    }
+    
+    /**
+     * Get count of days until previous X (day).
+     *
+     * @param localDate       the local date.
+     * @param targetDayOfWeek target day of week.
+     *
+     * @return count of days until previous X (day).
+     */
+    private static int getDaysUntilPreviousX(LocalDate localDate, DayOfWeek targetDayOfWeek) {
+        final DayOfWeek calendarDayOfWeek = localDate.getDayOfWeek();
+        
+        if (calendarDayOfWeek.getValue() >= targetDayOfWeek.getValue()) {
             return calendarDayOfWeek.getValue() - targetDayOfWeek.getValue();
         }
-    
-        return fixed - calendarDayOfWeek.getValue();
+        
+        // Return 7 days minus the difference of calendarDayOfWeek from targetDayOfWeek.
+        // Days are 1-7, Monday-Sunday, respectively.
+        return 7 - (targetDayOfWeek.getValue() - calendarDayOfWeek.getValue());
     }
     
     
@@ -118,7 +200,7 @@ public class LocalDateUtility {
         if (calendarDayOfWeek.getValue() < targetDayOfWeek.getValue() + 1) {
             return targetDayOfWeek.getValue() - calendarDayOfWeek.getValue();
         }
-    
+        
         return fixed - calendarDayOfWeek.getValue();
     }
 }
