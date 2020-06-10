@@ -17,7 +17,7 @@ public class LocalDateUtility {
      *
      * @return the days until sunday
      */
-    public static int getDaysUntilSunday(LocalDate localDate) {
+    public static long getDaysUntilSunday(LocalDate localDate) {
         return getDaysUntilX(localDate, DayOfWeek.SUNDAY);
     }
     
@@ -28,7 +28,7 @@ public class LocalDateUtility {
      *
      * @return the days until monday
      */
-    public static int getDaysUntilMonday(LocalDate localDate) {
+    public static long getDaysUntilMonday(LocalDate localDate) {
         return getDaysUntilX(localDate, DayOfWeek.MONDAY);
     }
     
@@ -39,7 +39,7 @@ public class LocalDateUtility {
      *
      * @return the days until tuesday
      */
-    public static int getDaysUntilTuesday(LocalDate localDate) {
+    public static long getDaysUntilTuesday(LocalDate localDate) {
         return getDaysUntilX(localDate, DayOfWeek.TUESDAY);
     }
     
@@ -50,7 +50,7 @@ public class LocalDateUtility {
      *
      * @return the days until wednesday
      */
-    public static int getDaysUntilWednesday(LocalDate localDate) {
+    public static long getDaysUntilWednesday(LocalDate localDate) {
         return getDaysUntilX(localDate, DayOfWeek.WEDNESDAY);
     }
     
@@ -61,7 +61,7 @@ public class LocalDateUtility {
      *
      * @return the days until thursday
      */
-    public static int getDaysUntilThursday(LocalDate localDate) {
+    public static long getDaysUntilThursday(LocalDate localDate) {
         return getDaysUntilX(localDate, DayOfWeek.THURSDAY);
     }
     
@@ -72,7 +72,7 @@ public class LocalDateUtility {
      *
      * @return the days until friday
      */
-    public static int getDaysUntilFriday(LocalDate localDate) {
+    public static long getDaysUntilFriday(LocalDate localDate) {
         return getDaysUntilX(localDate, DayOfWeek.FRIDAY);
     }
     
@@ -83,7 +83,7 @@ public class LocalDateUtility {
      *
      * @return the days until saturday
      */
-    public static int getDaysUntilSaturday(LocalDate localDate) {
+    public static long getDaysUntilSaturday(LocalDate localDate) {
         return getDaysUntilX(localDate, DayOfWeek.SATURDAY);
     }
     
@@ -94,7 +94,7 @@ public class LocalDateUtility {
      *
      * @return the int
      */
-    public static int getDaysUntilPreviousSunday(LocalDate localDate) {
+    public static long getDaysUntilPreviousSunday(LocalDate localDate) {
         return getDaysUntilPreviousX(localDate, DayOfWeek.SUNDAY);
     }
     
@@ -105,7 +105,7 @@ public class LocalDateUtility {
      *
      * @return the int
      */
-    public static int getDaysUntilPreviousSaturday(LocalDate localDate) {
+    public static long getDaysUntilPreviousSaturday(LocalDate localDate) {
         return getDaysUntilPreviousX(localDate, DayOfWeek.SATURDAY);
     }
     
@@ -116,7 +116,7 @@ public class LocalDateUtility {
      *
      * @return the int
      */
-    public static int getDaysUntilPreviousMonday(LocalDate localDate) {
+    public static long getDaysUntilPreviousMonday(LocalDate localDate) {
         return getDaysUntilPreviousX(localDate, DayOfWeek.MONDAY);
     }
     
@@ -127,7 +127,7 @@ public class LocalDateUtility {
      *
      * @return the int
      */
-    public static int getDaysUntilPreviousTuesday(LocalDate localDate) {
+    public static long getDaysUntilPreviousTuesday(LocalDate localDate) {
         return getDaysUntilPreviousX(localDate, DayOfWeek.TUESDAY);
     }
     
@@ -138,7 +138,7 @@ public class LocalDateUtility {
      *
      * @return the int
      */
-    public static int getDaysUntilPreviousWednesday(LocalDate localDate) {
+    public static long getDaysUntilPreviousWednesday(LocalDate localDate) {
         return getDaysUntilPreviousX(localDate, DayOfWeek.WEDNESDAY);
     }
     
@@ -149,7 +149,7 @@ public class LocalDateUtility {
      *
      * @return the int
      */
-    public static int getDaysUntilPreviousThursday(LocalDate localDate) {
+    public static long getDaysUntilPreviousThursday(LocalDate localDate) {
         return getDaysUntilPreviousX(localDate, DayOfWeek.THURSDAY);
     }
     
@@ -160,7 +160,7 @@ public class LocalDateUtility {
      *
      * @return the int
      */
-    public static int getDaysUntilPreviousFriday(LocalDate localDate) {
+    public static long getDaysUntilPreviousFriday(LocalDate localDate) {
         return getDaysUntilPreviousX(localDate, DayOfWeek.FRIDAY);
     }
     
@@ -172,7 +172,7 @@ public class LocalDateUtility {
      *
      * @return count of days until previous X (day).
      */
-    private static int getDaysUntilPreviousX(LocalDate localDate, DayOfWeek targetDayOfWeek) {
+    private static long getDaysUntilPreviousX(LocalDate localDate, DayOfWeek targetDayOfWeek) {
         final DayOfWeek calendarDayOfWeek = localDate.getDayOfWeek();
         
         if (calendarDayOfWeek.getValue() >= targetDayOfWeek.getValue()) {
@@ -193,7 +193,7 @@ public class LocalDateUtility {
      *
      * @return the days until saturday
      */
-    private static int getDaysUntilX(LocalDate localDate, DayOfWeek targetDayOfWeek) {
+    private static long getDaysUntilX(LocalDate localDate, DayOfWeek targetDayOfWeek) {
         final DayOfWeek calendarDayOfWeek = localDate.getDayOfWeek();
         final int       fixed             = 7 + targetDayOfWeek.getValue(); // 7 days of the week
         
@@ -202,5 +202,96 @@ public class LocalDateUtility {
         }
         
         return fixed - calendarDayOfWeek.getValue();
+    }
+    
+    /**
+     * Get last sunday of the month local date.
+     *
+     * @param localDate the local date
+     *
+     * @return the local date
+     */
+    public static LocalDate getLastSundayOfTheMonth(LocalDate localDate) {
+        return getLastXDay(localDate, DayOfWeek.SUNDAY);
+    }
+    
+    /**
+     * Get last monday of the month local date.
+     *
+     * @param localDate the local date
+     *
+     * @return the local date
+     */
+    public static LocalDate getLastMondayOfTheMonth(LocalDate localDate) {
+        return getLastXDay(localDate, DayOfWeek.MONDAY);
+    }
+    
+    /**
+     * Get last tuesday of the month local date.
+     *
+     * @param localDate the local date
+     *
+     * @return the local date
+     */
+    public static LocalDate getLastTuesdayOfTheMonth(LocalDate localDate) {
+        return getLastXDay(localDate, DayOfWeek.TUESDAY);
+    }
+    
+    /**
+     * Get last wednesday of the month local date.
+     *
+     * @param localDate the local date
+     *
+     * @return the local date
+     */
+    public static LocalDate getLastWednesdayOfTheMonth(LocalDate localDate) {
+        return getLastXDay(localDate, DayOfWeek.WEDNESDAY);
+    }
+    
+    /**
+     * Get last thursday of the month local date.
+     *
+     * @param localDate the local date
+     *
+     * @return the local date
+     */
+    public static LocalDate getLastThursdayOfTheMonth(LocalDate localDate) {
+        return getLastXDay(localDate, DayOfWeek.THURSDAY);
+    }
+    
+    /**
+     * Get last friday of the month local date.
+     *
+     * @param localDate the local date
+     *
+     * @return the local date
+     */
+    public static LocalDate getLastFridayOfTheMonth(LocalDate localDate) {
+        return getLastXDay(localDate, DayOfWeek.FRIDAY);
+    }
+    
+    /**
+     * Get last saturday of the month local date.
+     *
+     * @param localDate the local date
+     *
+     * @return the local date
+     */
+    public static LocalDate getLastSaturdayOfTheMonth(LocalDate localDate) {
+        return getLastXDay(localDate, DayOfWeek.SATURDAY);
+    }
+    
+    /**
+     * Get the last X day.
+     *
+     * @param localDate the local date.
+     * @param dayOfWeek the target last day of the month.
+     *
+     * @return the date of the last X day of the month.
+     */
+    private static LocalDate getLastXDay(LocalDate localDate, DayOfWeek dayOfWeek) {
+        LocalDate ld = localDate.plusMonths(1).withDayOfMonth(1).minusDays(1);
+        
+        return ld.minusDays(getDaysUntilPreviousX(ld, dayOfWeek));
     }
 }

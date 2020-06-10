@@ -1,13 +1,7 @@
 package org.geekcodes.calendar.utilities;
 
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -101,7 +95,7 @@ class LocalDateUtilityTest {
      */
     @Test
     @Order(8)
-    void getDaysUntilPreviousSunday(){
+    void getDaysUntilPreviousSunday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
         System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(2, LocalDateUtility.getDaysUntilPreviousSunday(ld));
@@ -112,7 +106,7 @@ class LocalDateUtilityTest {
      */
     @Test
     @Order(9)
-    void getDaysUntilPreviousMonday(){
+    void getDaysUntilPreviousMonday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
         System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(1, LocalDateUtility.getDaysUntilPreviousMonday(ld));
@@ -123,7 +117,7 @@ class LocalDateUtilityTest {
      */
     @Test
     @Order(10)
-    void getDaysUntilPreviousTuesday(){
+    void getDaysUntilPreviousTuesday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
         System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(0, LocalDateUtility.getDaysUntilPreviousTuesday(ld));
@@ -134,7 +128,7 @@ class LocalDateUtilityTest {
      */
     @Test
     @Order(11)
-    void getDaysUntilPreviousWednesday(){
+    void getDaysUntilPreviousWednesday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
         System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(6, LocalDateUtility.getDaysUntilPreviousWednesday(ld));
@@ -145,7 +139,7 @@ class LocalDateUtilityTest {
      */
     @Test
     @Order(12)
-    void getDaysUntilPreviousThursday(){
+    void getDaysUntilPreviousThursday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
         System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(5, LocalDateUtility.getDaysUntilPreviousThursday(ld));
@@ -156,7 +150,7 @@ class LocalDateUtilityTest {
      */
     @Test
     @Order(13)
-    void getDaysUntilPreviousFriday(){
+    void getDaysUntilPreviousFriday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
         System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(4, LocalDateUtility.getDaysUntilPreviousFriday(ld));
@@ -167,9 +161,93 @@ class LocalDateUtilityTest {
      */
     @Test
     @Order(14)
-    void getDaysUntilPreviousSaturday(){
+    void getDaysUntilPreviousSaturday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
         System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(3, LocalDateUtility.getDaysUntilPreviousSaturday(ld));
+    }
+    
+    /**
+     * Test get last monday of the month.
+     */
+    @Test
+    @Order(15)
+    void testGetLastSundayOfTheMonth() {
+        LocalDate expectedDate = LocalDate.of(2020, Month.JANUARY, 26);
+        
+        System.out.printf("%s %s", localDate.getDayOfWeek(), localDate);
+        Assertions.assertEquals(expectedDate, LocalDateUtility.getLastSundayOfTheMonth(localDate));
+    }
+    
+    /**
+     * Test get last monday of the month.
+     */
+    @Test
+    @Order(16)
+    void testGetLastMondayOfTheMonth() {
+        LocalDate expectedDate = LocalDate.of(2020, Month.JANUARY, 27);
+        
+        System.out.printf("%s %s", localDate.getDayOfWeek(), localDate);
+        Assertions.assertEquals(expectedDate, LocalDateUtility.getLastMondayOfTheMonth(localDate));
+    }
+    
+    /**
+     * Test get last monday of the month.
+     */
+    @Test
+    @Order(17)
+    void testGetLastTuesdayOfTheMonth() {
+        LocalDate expectedDate = LocalDate.of(2020, Month.JANUARY, 28);
+        
+        System.out.printf("%s %s", localDate.getDayOfWeek(), localDate);
+        Assertions.assertEquals(expectedDate, LocalDateUtility.getLastTuesdayOfTheMonth(localDate));
+    }
+    
+    /**
+     * Test get last monday of the month.
+     */
+    @Test
+    @Order(18)
+    void testGetLastWednesdayOfTheMonth() {
+        LocalDate expectedDate = LocalDate.of(2020, Month.JANUARY, 29);
+        
+        System.out.printf("%s %s", localDate.getDayOfWeek(), localDate);
+        Assertions.assertEquals(expectedDate, LocalDateUtility.getLastWednesdayOfTheMonth(localDate));
+    }
+    
+    /**
+     * Test get last monday of the month.
+     */
+    @Test
+    @Order(19)
+    void testGetLastThursdayOfTheMonth() {
+        LocalDate expectedDate = LocalDate.of(2020, Month.JANUARY, 30);
+        
+        System.out.printf("%s %s", localDate.getDayOfWeek(), localDate);
+        Assertions.assertEquals(expectedDate, LocalDateUtility.getLastThursdayOfTheMonth(localDate));
+    }
+    
+    /**
+     * Test get last monday of the month.
+     */
+    @Test
+    @Order(20)
+    void testGetLastFridayOfTheMonth() {
+        LocalDate expectedDate = LocalDate.of(2020, Month.JANUARY, 31);
+        
+        System.out.printf("%s %s", localDate.getDayOfWeek(), localDate);
+        Assertions.assertEquals(expectedDate, LocalDateUtility.getLastFridayOfTheMonth(localDate));
+    }
+    
+    /**
+     * Test get last monday of the month.
+     */
+    @Test
+    @Order(21)
+    void testGetLastSaturdayOfTheMonth() {
+        LocalDate expectedDate = LocalDate.of(2020, Month.JANUARY, 25);
+        
+        System.out.printf("%s %s", localDate.getDayOfWeek(), localDate);
+        Assertions.assertEquals(expectedDate, LocalDateUtility.getLastSaturdayOfTheMonth(localDate));
     }
 }
