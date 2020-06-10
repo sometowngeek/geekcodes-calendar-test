@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ class AprilTest {
      *
      * @return the list
      */
-    static List<LocalDate> getDates(){
+    static List<LocalDate> getDates() {
         List<LocalDate> dates = new ArrayList<>();
         dates.add(LocalDate.of(YEAR, java.time.Month.APRIL, 1));
         dates.add(LocalDate.of(YEAR, java.time.Month.APRIL, 2));
@@ -64,7 +65,7 @@ class AprilTest {
      */
     @BeforeEach
     void setUp() {
-        april = new April(YEAR);
+        april      = new April(YEAR);
         aprilDates = AprilTest.getDates();
     }
     
@@ -87,7 +88,7 @@ class AprilTest {
      * Test get holidays static.
      */
     @Test
-    void testGetHolidaysStatic(){
+    void testGetHolidaysStatic() {
         Assertions.assertEquals(new ArrayList<LocalDate>(), April.getHolidays(YEAR));
     }
     
@@ -103,7 +104,20 @@ class AprilTest {
      * Test static get dates.
      */
     @Test
-    void testStaticGetDates(){
+    void testStaticGetDates() {
         Assertions.assertEquals(aprilDates, April.getDates(2020));
+    }
+    
+    
+    /**
+     * Test set local date.
+     */
+    @Test
+    void testSetLocalDate() {
+        LocalDate expected = LocalDate.of(2025, Month.APRIL, 30);
+        
+        april.setLocalDate(LocalDate.of(2025, Month.APRIL, 30));
+        
+        Assertions.assertEquals(expected, april.getLocalDate());
     }
 }

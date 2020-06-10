@@ -62,7 +62,7 @@ class MayTest {
     @BeforeEach
     void setUp() {
         mayDates = MayTest.getDates();
-        may = new May(YEAR);
+        may      = new May(YEAR);
     }
     
     @AfterEach

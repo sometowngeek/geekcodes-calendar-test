@@ -38,16 +38,6 @@ public final class April extends AMonth implements IMonth {
     }
     
     /**
-     * Gets holidays.
-     *
-     * @return the holidays
-     */
-    @Override
-    public List<LocalDate> getHolidays() {
-        return new ArrayList<>();
-    }
-    
-    /**
      * Get holidays list.
      *
      * @param year the year
@@ -56,5 +46,15 @@ public final class April extends AMonth implements IMonth {
      */
     public static List<LocalDate> getHolidays(int year) {
         return new April(year).getHolidays();
+    }
+    
+    /**
+     * Gets holidays.
+     *
+     * @return the holidays
+     */
+    @Override
+    public List<LocalDate> getHolidays() {
+        return new ArrayList<>();
     }
 }

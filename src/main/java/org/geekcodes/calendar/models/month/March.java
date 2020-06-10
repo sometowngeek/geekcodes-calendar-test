@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type March.
+ */
 public class March extends AMonth implements IMonth {
     
     /**
@@ -21,6 +24,28 @@ public class March extends AMonth implements IMonth {
      */
     private March() {
         super(java.time.Month.MARCH);
+    }
+    
+    /**
+     * Get holidays list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getHolidays(int year) {
+        return new March(year).getHolidays();
+    }
+    
+    /**
+     * Get dates list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getDates(int year) {
+        return new March(year).getDates();
     }
     
     /**

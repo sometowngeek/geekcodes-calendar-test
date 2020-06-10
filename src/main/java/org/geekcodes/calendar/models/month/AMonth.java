@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  */
 abstract class AMonth implements IMonth {
     protected final java.time.Month month;
-    protected LocalDate localDate;
+    protected       LocalDate       localDate;
     
     protected AMonth(java.time.Month month) {
         this.month = month;

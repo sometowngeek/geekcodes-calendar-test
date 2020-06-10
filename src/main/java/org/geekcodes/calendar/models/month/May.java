@@ -11,7 +11,7 @@ import java.util.List;
  * The type May.
  */
 public class May extends AMonth implements IMonth {
-    private May(){
+    private May() {
         super(Month.MAY);
     }
     
@@ -28,21 +28,32 @@ public class May extends AMonth implements IMonth {
     /**
      * Get memorial day local date.
      *
+     * @param year the year
+     *
      * @return the local date
      */
-    public LocalDate getMemorialDay(){
-        return LocalDateUtility.getLastMondayOfTheMonth(this.localDate);
+    public static LocalDate getMemorialDay(int year) {
+        return new May(year).getMemorialDay();
+    }
+    
+    /**
+     * Get holidays list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getHolidays(int year) {
+        return new May(year).getHolidays();
     }
     
     /**
      * Get memorial day local date.
      *
-     * @param year the year
-     *
      * @return the local date
      */
-    public static LocalDate getMemorialDay(int year){
-        return new May(year).getMemorialDay();
+    public LocalDate getMemorialDay() {
+        return LocalDateUtility.getLastMondayOfTheMonth(this.localDate);
     }
     
     /**
@@ -56,16 +67,5 @@ public class May extends AMonth implements IMonth {
         holidays.add(this.getMemorialDay());
         
         return holidays;
-    }
-    
-    /**
-     * Get holidays list.
-     *
-     * @param year the year
-     *
-     * @return the list
-     */
-    public static List<LocalDate> getHolidays(int year){
-        return new May(year).getHolidays();
     }
 }

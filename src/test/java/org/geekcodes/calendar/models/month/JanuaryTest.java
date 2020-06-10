@@ -24,16 +24,6 @@ class JanuaryTest {
     private             January         january;
     
     /**
-     * Sets up.
-     */
-    @BeforeEach
-    void setUp() {
-        localDate = LocalDate.of(2020, Month.JANUARY, 1);
-        januaryDates = getDates();
-        january      = new January(YEAR);
-    }
-    
-    /**
      * Gets dates.
      *
      * @return the dates
@@ -46,6 +36,16 @@ class JanuaryTest {
         }
         
         return dates;
+    }
+    
+    /**
+     * Sets up.
+     */
+    @BeforeEach
+    void setUp() {
+        localDate    = LocalDate.of(2020, Month.JANUARY, 1);
+        januaryDates = getDates();
+        january      = new January(YEAR);
     }
     
     /**
@@ -69,7 +69,18 @@ class JanuaryTest {
     @Test
     void testGetMartinLutherKingJrDate() {
         LocalDate expected   = LocalDate.of(2020, Month.JANUARY, 20);
-        LocalDate actualDate = January.getMartinLutherKingJrDate(localDate);
+        LocalDate actualDate = january.getMartinLutherKingJrDate();
+        
+        Assertions.assertEquals(expected, actualDate);
+    }
+    
+    /**
+     * Test get martin luther king jr date.
+     */
+    @Test
+    void testGetMartinLutherKingJrDateStatic() {
+        LocalDate expected   = LocalDate.of(2020, Month.JANUARY, 20);
+        LocalDate actualDate = January.getMartinLutherKingJrDate(YEAR);
         
         Assertions.assertEquals(expected, actualDate);
     }
@@ -94,6 +105,15 @@ class JanuaryTest {
         Assertions.assertEquals(LocalDate.of(YEAR, Month.JANUARY, 1), january.getNewYearDate());
     }
     
+    
+    /**
+     * Test get new year date.
+     */
+    @Test
+    void testGetNewYearDateStatic() {
+        Assertions.assertEquals(LocalDate.of(YEAR, Month.JANUARY, 1), January.getNewYearDate(YEAR));
+    }
+    
     /**
      * Test get holidays.
      */
@@ -110,7 +130,7 @@ class JanuaryTest {
      * Test get dates static.
      */
     @Test
-    void testGetDatesStatic(){
+    void testGetDatesStatic() {
         Assertions.assertEquals(JanuaryTest.getDates(), January.getDates(YEAR));
     }
     
@@ -118,11 +138,11 @@ class JanuaryTest {
      * Test get holidays static.
      */
     @Test
-    void testGetHolidaysStatic(){
+    void testGetHolidaysStatic() {
         List<LocalDate> januaryHolidays = new ArrayList<>();
         januaryHolidays.add(LocalDate.of(YEAR, Month.JANUARY, 1));
         januaryHolidays.add(LocalDate.of(YEAR, Month.JANUARY, 20));
-    
+        
         Assertions.assertEquals(januaryHolidays, January.getHolidays(YEAR));
     }
 }
