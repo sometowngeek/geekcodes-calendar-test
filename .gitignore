@@ -68,5 +68,8 @@ local.properties
 **/config.properties
 build/**
 notBuild/**
-/build/
-/.gradle/
+build/
+.gradle/
+
+# IntelliJ
+.idea/

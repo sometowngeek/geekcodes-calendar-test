@@ -4,10 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class March extends AMonth implements Month {
-    
-    private March() {
-    }
+public class March extends AMonth implements IMonth {
     
     /**
      * Instantiates a new March.
@@ -15,7 +12,15 @@ public class March extends AMonth implements Month {
      * @param year the year
      */
     public March(int year) {
+        this();
         this.localDate = LocalDate.of(year, java.time.Month.MARCH, 1);
+    }
+    
+    /**
+     * Instantiates a new March.
+     */
+    private March() {
+        super(java.time.Month.MARCH);
     }
     
     /**

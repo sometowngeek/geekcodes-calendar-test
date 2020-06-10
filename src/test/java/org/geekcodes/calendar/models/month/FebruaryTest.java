@@ -41,42 +41,15 @@ class FebruaryTest {
      *
      * @return the dates
      */
-    static List<LocalDate> getDates(boolean leapYear) {
+    public static List<LocalDate> getDates(boolean leapYear) {
         List <LocalDate> dates = new ArrayList<>();
         
         final int year = leapYear ? LEAP_YEAR : NOT_LEAP_YEAR;
         
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 1));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 2));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 3));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 4));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 5));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 6));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 7));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 8));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 9));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 10));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 11));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 12));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 13));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 14));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 15));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 16));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 17));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 18));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 19));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 20));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 21));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 22));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 23));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 24));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 25));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 26));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 27));
-        dates.add(LocalDate.of(year, Month.FEBRUARY, 28));
+        int maxDays = leapYear ? 29 : 28;
         
-        if (leapYear){
-            dates.add(LocalDate.of(year, Month.FEBRUARY, 29));
+        for (int d = 1; d <= maxDays; d++){
+            dates.add(LocalDate.of(year, Month.FEBRUARY, d));
         }
         
         return dates;
@@ -137,5 +110,23 @@ class FebruaryTest {
     void testGetDatesNotLeapYear() {
         Assertions.assertEquals(februaryDatesNotLeapYear, februaryNotLeapYear.getDates());
         Assertions.assertNotEquals(februaryDatesLeapYear, februaryNotLeapYear.getDates());
+    }
+    
+    /**
+     * Test static get dates leap year.
+     */
+    @Test
+    void testStaticGetDatesLeapYear(){
+        Assertions.assertEquals(februaryDatesLeapYear, February.getDates(LEAP_YEAR));
+        Assertions.assertNotEquals(februaryDatesNotLeapYear, February.getDates(LEAP_YEAR));
+    }
+    
+    /**
+     * Test static get dates not leap year.
+     */
+    @Test
+    void testStaticGetDatesNotLeapYear(){
+        Assertions.assertEquals(februaryDatesNotLeapYear, February.getDates(NOT_LEAP_YEAR));
+        Assertions.assertNotEquals(februaryDatesLeapYear, February.getDates(NOT_LEAP_YEAR));
     }
 }

@@ -5,13 +5,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * The type A month.
+ * The abstract class AMONTH.
  */
-abstract class AMonth implements Month {
-    /**
-     * The Calendar.
-     */
+abstract class AMonth implements IMonth {
+    protected final java.time.Month month;
     protected LocalDate localDate;
+    
+    protected AMonth(java.time.Month month) {
+        this.month = month;
+    }
     
     /**
      * Get calendar calendar.
@@ -31,6 +33,11 @@ abstract class AMonth implements Month {
         this.localDate = LocalDate.ofEpochDay(localDate.toEpochDay());
     }
     
+    /**
+     * Gets dates.
+     *
+     * @return the dates
+     */
     public final List<LocalDate> getDates() {
         if (this.localDate.getMonth() == java.time.Month.DECEMBER) {
             return this.localDate.withDayOfMonth(1).datesUntil(LocalDate.of(this.localDate.getYear(), java.time.Month.JANUARY, 1)).collect(Collectors.toList());
@@ -38,4 +45,5 @@ abstract class AMonth implements Month {
         
         return this.localDate.withDayOfMonth(1).datesUntil(LocalDate.of(this.localDate.getYear(), this.localDate.getMonthValue() + 1, 1)).collect(Collectors.toList());
     }
+    
 }

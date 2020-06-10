@@ -9,10 +9,7 @@ import java.util.List;
 /**
  * The type February.
  */
-public class February extends AMonth implements Month {
-    
-    private February() {
-    }
+public class February extends AMonth implements IMonth {
     
     /**
      * Instantiates a new February.
@@ -20,7 +17,15 @@ public class February extends AMonth implements Month {
      * @param year the year
      */
     public February(int year) {
+        this();
         this.localDate = LocalDate.of(year, java.time.Month.FEBRUARY, 1);
+    }
+    
+    /**
+     * Instantiates a new February.
+     */
+    private February() {
+        super(java.time.Month.FEBRUARY);
     }
     
     /**
@@ -34,6 +39,18 @@ public class February extends AMonth implements Month {
         February february = new February(year);
         
         return february.getHolidays();
+    }
+    
+    /**
+     * Get dates list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getDates(int year) {
+        February february = new February(year);
+        return february.getDates();
     }
     
     /**

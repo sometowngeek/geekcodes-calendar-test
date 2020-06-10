@@ -5,28 +5,47 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * The type January test.
  */
 class JanuaryTest {
     
-    public static final int             YEAR              = 2020;
-    private             LocalDate       localDate         = LocalDate.of(2020, Month.JANUARY, 1);
-    private             List<LocalDate> januaryDates      = LocalDate.of(YEAR, Month.JANUARY, 1).datesUntil(LocalDate.of(2020, Month.FEBRUARY, 1)).collect(Collectors.toList());
-    private             January         january           = new January(YEAR);
+    /**
+     * The constant YEAR.
+     */
+    public static final int             YEAR = 2020;
+    private             LocalDate       localDate;
+    private             List<LocalDate> januaryDates;
+    private             January         january;
     
     /**
      * Sets up.
      */
     @BeforeEach
-    void setUp() throws ParseException {
+    void setUp() {
+        localDate = LocalDate.of(2020, Month.JANUARY, 1);
+        januaryDates = getDates();
+        january      = new January(YEAR);
+    }
+    
+    /**
+     * Gets dates.
+     *
+     * @return the dates
+     */
+    public static List<LocalDate> getDates() {
+        List<LocalDate> dates = new ArrayList<>();
+        
+        for (int d = 1; d <= 31; d++) {
+            dates.add(LocalDate.of(YEAR, Month.JANUARY, d));
+        }
+        
+        return dates;
     }
     
     /**
@@ -36,9 +55,11 @@ class JanuaryTest {
     void tearDown() {
     }
     
+    /**
+     * Test get dates.
+     */
     @Test
     void testGetDates() {
-        January january = new January(YEAR);
         Assertions.assertEquals(januaryDates, january.getDates());
     }
     
@@ -53,21 +74,29 @@ class JanuaryTest {
         Assertions.assertEquals(expected, actualDate);
     }
     
+    /**
+     * Test set local date.
+     */
     @Test
     void testSetLocalDate() {
         LocalDate expected = LocalDate.of(2025, Month.JANUARY, 30);
         
-        January january = new January(2000);
         january.setLocalDate(LocalDate.of(2025, Month.JANUARY, 30));
         
         Assertions.assertEquals(expected, january.getLocalDate());
     }
     
+    /**
+     * Test get new year date.
+     */
     @Test
     void testGetNewYearDate() {
         Assertions.assertEquals(LocalDate.of(YEAR, Month.JANUARY, 1), january.getNewYearDate());
     }
     
+    /**
+     * Test get holidays.
+     */
     @Test
     void testGetHolidays() {
         List<LocalDate> januaryHolidays = new ArrayList<>();
@@ -75,5 +104,25 @@ class JanuaryTest {
         januaryHolidays.add(LocalDate.of(YEAR, Month.JANUARY, 20));
         
         Assertions.assertEquals(januaryHolidays, january.getHolidays());
+    }
+    
+    /**
+     * Test get dates static.
+     */
+    @Test
+    void testGetDatesStatic(){
+        Assertions.assertEquals(JanuaryTest.getDates(), January.getDates(YEAR));
+    }
+    
+    /**
+     * Test get holidays static.
+     */
+    @Test
+    void testGetHolidaysStatic(){
+        List<LocalDate> januaryHolidays = new ArrayList<>();
+        januaryHolidays.add(LocalDate.of(YEAR, Month.JANUARY, 1));
+        januaryHolidays.add(LocalDate.of(YEAR, Month.JANUARY, 20));
+    
+        Assertions.assertEquals(januaryHolidays, January.getHolidays(YEAR));
     }
 }

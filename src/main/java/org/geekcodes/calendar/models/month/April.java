@@ -4,13 +4,37 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class April extends AMonth implements Month {
+/**
+ * The type April.
+ */
+public final class April extends AMonth implements IMonth {
     
-    private April() {
+    /**
+     * Instantiates a new April.
+     *
+     * @param year the year
+     */
+    public April(int year) {
+        this();
+        this.localDate = LocalDate.of(year, java.time.Month.APRIL, 1);
     }
     
-    public April(int year) {
-        this.localDate = LocalDate.of(year, java.time.Month.APRIL, 1);
+    /**
+     * Instantiates a new April.
+     */
+    private April() {
+        super(java.time.Month.APRIL);
+    }
+    
+    /**
+     * Get dates list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getDates(int year) {
+        return new April(year).getDates();
     }
     
     /**
@@ -23,4 +47,14 @@ public class April extends AMonth implements Month {
         return new ArrayList<>();
     }
     
+    /**
+     * Get holidays list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getHolidays(int year) {
+        return new April(year).getHolidays();
+    }
 }

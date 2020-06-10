@@ -9,10 +9,7 @@ import java.util.List;
 /**
  * The type January.
  */
-final class January extends AMonth implements Month {
-    
-    private January() {
-    }
+public final class January extends AMonth implements IMonth {
     
     /**
      * Instantiates a new January.
@@ -20,21 +17,26 @@ final class January extends AMonth implements Month {
      * @param year the year
      */
     public January(int year) {
+        this();
         this.localDate = LocalDate.of(year, java.time.Month.JANUARY, 1);
     }
     
     /**
-     * Gets Martin Luther King Jr Date.<br>
-     * <em>3rd Monday of January.</em>
-     *
-     * @param localDate the LocalDate
-     *
-     * @return Date of MLK Jr day.
+     * Instantiates a new January.
      */
-    protected static LocalDate getMartinLutherKingJrDate(LocalDate localDate) {
-        January january = new January(localDate.getYear());
-        
-        return january.getMartinLutherKingJrDate();
+    private January() {
+        super(java.time.Month.JANUARY);
+    }
+    
+    /**
+     * Get dates list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getDates(int year) {
+        return new January(year).getDates();
     }
     
     /**
@@ -52,8 +54,15 @@ final class January extends AMonth implements Month {
         return holidays;
     }
     
-    public LocalDate getNewYearDate() {
-        return LocalDate.of(localDate.getYear(), 1, 1);
+    /**
+     * Get holidays list.
+     *
+     * @param year the year
+     *
+     * @return the list
+     */
+    public static List<LocalDate> getHolidays(int year) {
+        return new January(year).getHolidays();
     }
     
     /**
@@ -62,8 +71,29 @@ final class January extends AMonth implements Month {
      *
      * @return LocalDate the date of MLK Jr day.
      */
-    protected LocalDate getMartinLutherKingJrDate() {
+    public LocalDate getMartinLutherKingJrDate() {
         long days = LocalDateUtility.getDaysUntilMonday(this.localDate);
         return this.localDate.plusDays(days + 14);
+    }
+    
+    /**
+     * Gets Martin Luther King Jr Date.<br>
+     * <em>3rd Monday of January.</em>
+     *
+     * @param localDate the LocalDate
+     *
+     * @return Date of MLK Jr day.
+     */
+    public static LocalDate getMartinLutherKingJrDate(LocalDate localDate) {
+        return new January(localDate.getYear()).getMartinLutherKingJrDate();
+    }
+    
+    /**
+     * Gets new year date.
+     *
+     * @return the new year date
+     */
+    public LocalDate getNewYearDate() {
+        return LocalDate.of(localDate.getYear(), 1, 1);
     }
 }

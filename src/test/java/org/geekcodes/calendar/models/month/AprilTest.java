@@ -84,10 +84,26 @@ class AprilTest {
     }
     
     /**
+     * Test get holidays static.
+     */
+    @Test
+    void testGetHolidaysStatic(){
+        Assertions.assertEquals(new ArrayList<LocalDate>(), April.getHolidays(YEAR));
+    }
+    
+    /**
      * Test get dates.
      */
     @Test
     void testGetDates() {
         Assertions.assertEquals(aprilDates, april.getDates());
+    }
+    
+    /**
+     * Test static get dates.
+     */
+    @Test
+    void testStaticGetDates(){
+        Assertions.assertEquals(aprilDates, April.getDates(2020));
     }
 }
