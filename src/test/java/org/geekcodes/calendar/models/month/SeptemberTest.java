@@ -10,6 +10,9 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type September test.
+ */
 class SeptemberTest {
     
     private static final int             YEAR = 2020;
@@ -68,6 +71,11 @@ class SeptemberTest {
         septemberHolidays = SeptemberTest.getHolidays();
     }
     
+    /**
+     * Gets holidays.
+     *
+     * @return the holidays
+     */
     public static List<LocalDate> getHolidays() {
         List<LocalDate> holidays = new ArrayList<>();
         holidays.add(LocalDate.of(YEAR, Month.SEPTEMBER, 7));
@@ -126,6 +134,9 @@ class SeptemberTest {
         Assertions.assertEquals(expected, september.getLocalDate());
     }
     
+    /**
+     * Test get labor day.
+     */
     @Test
     void testGetLaborDay() {
         LocalDate expected = LocalDate.of(YEAR, Month.SEPTEMBER, 7);
@@ -133,6 +144,9 @@ class SeptemberTest {
         Assertions.assertEquals(expected, september.getLaborDay());
     }
     
+    /**
+     * Test get labor day static.
+     */
     @Test
     void testGetLaborDayStatic() {
         LocalDate expected = LocalDate.of(YEAR, Month.SEPTEMBER, 7);
