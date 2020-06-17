@@ -112,9 +112,9 @@ class AugustTest {
      */
     @Test
     void testSetLocalDate() {
-        LocalDate expected = LocalDate.of(2025, Month.APRIL, 30);
+        LocalDate expected = LocalDate.of(2025, Month.AUGUST, 30);
         
-        august.setLocalDate(LocalDate.of(2025, Month.APRIL, 30));
+        august.setLocalDate(LocalDate.of(2025, Month.AUGUST, 30));
         
         Assertions.assertEquals(expected, august.getLocalDate());
     }
