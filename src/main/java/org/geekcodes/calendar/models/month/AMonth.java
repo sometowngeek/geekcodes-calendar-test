@@ -40,7 +40,7 @@ abstract class AMonth implements IMonth {
      */
     public final List<LocalDate> getDates() {
         if (this.localDate.getMonth() == java.time.Month.DECEMBER) {
-            return this.localDate.withDayOfMonth(1).datesUntil(LocalDate.of(this.localDate.getYear(), java.time.Month.JANUARY, 1)).collect(Collectors.toList());
+            return this.localDate.withDayOfMonth(1).datesUntil(LocalDate.of(this.localDate.getYear()+1, java.time.Month.JANUARY, 1)).collect(Collectors.toList());
         }
         
         return this.localDate.withDayOfMonth(1).datesUntil(LocalDate.of(this.localDate.getYear(), this.localDate.getMonthValue() + 1, 1)).collect(Collectors.toList());
