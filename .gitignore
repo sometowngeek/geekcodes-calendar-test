@@ -72,4 +72,7 @@ build/
 .gradle/
 
 # IntelliJ
-.idea/
+.idea
+
+# Temporary
+src/test/java/org/geekcodes/calendar/QuickRun.java
