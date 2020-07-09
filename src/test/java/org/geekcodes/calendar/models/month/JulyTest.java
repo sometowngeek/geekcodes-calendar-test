@@ -15,7 +15,7 @@ class JulyTest {
     private static final int             YEAR = 2020;
     private              List<LocalDate> julyDates;
     private              List<LocalDate> julyHolidays;
-    private              List<LocalDate> julyHolidaysObserved;
+    private              List<LocalDate> julyObservedHolidays;
     private              July            july;
     
     /**
@@ -77,7 +77,7 @@ class JulyTest {
         this.july                 = new July(YEAR);
         this.julyDates            = JulyTest.getDates();
         this.julyHolidays         = JulyTest.getHolidays();
-        this.julyHolidaysObserved = JulyTest.getHolidaysObserved();
+        this.julyObservedHolidays = JulyTest.getHolidaysObserved();
     }
     
     @AfterEach
@@ -148,12 +148,12 @@ class JulyTest {
     }
     
     @Test
-    void testGetHolidaysObserved() {
-        Assertions.assertEquals(julyHolidaysObserved, july.getHolidaysObserved());
+    void testGetObservedHolidays() {
+        Assertions.assertEquals(julyObservedHolidays, july.getObservedHolidays());
     }
     
     @Test
-    void testGetHolidaysObservedStatic() {
-        Assertions.assertEquals(julyHolidaysObserved, July.getHolidaysObserved(YEAR));
+    void testGetObservedHolidaysStatic() {
+        Assertions.assertEquals(julyObservedHolidays, July.getObservedHolidays(YEAR));
     }
 }

@@ -114,7 +114,7 @@ public class July extends AMonth implements IMonth {
      *
      * @return the holidays observed
      */
-    public List<LocalDate> getHolidaysObserved() {
+    public List<LocalDate> getObservedHolidays() {
         List<LocalDate> holidays = new ArrayList<>();
         holidays.add(this.getFourthOfJulyObserved());
         
@@ -128,7 +128,7 @@ public class July extends AMonth implements IMonth {
      *
      * @return the holidays observed
      */
-    public static List<LocalDate> getHolidaysObserved(int year) {
-        return new July(year).getHolidaysObserved();
+    public static List<LocalDate> getObservedHolidays(int year) {
+        return new July(year).getObservedHolidays();
     }
 }
