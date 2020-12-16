@@ -10,6 +10,7 @@ plugins {
     id 'java-library'
 	id 'jacoco'
 	id 'idea'
+    id 'org.sonarcube' version '3.0'
 }
 
 group = 'org.geekcodes'
@@ -44,6 +45,14 @@ sourceSets {
 	test.resources {
 		exclude '**/.gitkeep'
 	}
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "sometowngeek_geekcodes-calendar"
+    property "sonar.organization", "sometowngeek"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 test{
