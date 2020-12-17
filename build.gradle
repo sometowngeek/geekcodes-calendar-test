@@ -47,16 +47,38 @@ sourceSets {
 	}
 }
 
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.5
+            }
+        }
+
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['org.gradle.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.3
+            }
+        }
+    }
+}
+
+jacocoTestReport {
+    reports.xml.enabled true
+}
+
 sonarqube {
   properties {
     property "sonar.projectKey", "sometowngeek_geekcodes-calendar"
     property "sonar.organization", "sometowngeek"
     property "sonar.host.url", "https://sonarcloud.io"
   }
-}
-
-jacocoTestReport {
-    reports.xml.enabled true
 }
 
 test{
