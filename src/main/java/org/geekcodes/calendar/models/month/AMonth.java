@@ -38,6 +38,7 @@ abstract class AMonth implements IMonth {
      *
      * @return the dates
      */
+    @Override
     public final List<LocalDate> getDates() {
         if (this.localDate.getMonth() == java.time.Month.DECEMBER) {
             return this.localDate.withDayOfMonth(1).datesUntil(LocalDate.of(this.localDate.getYear()+1, java.time.Month.JANUARY, 1)).collect(Collectors.toList());
