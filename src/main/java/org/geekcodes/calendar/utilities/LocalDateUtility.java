@@ -176,12 +176,12 @@ public class LocalDateUtility {
         final DayOfWeek calendarDayOfWeek = localDate.getDayOfWeek();
         
         if (calendarDayOfWeek.getValue() >= targetDayOfWeek.getValue()) {
-            return calendarDayOfWeek.getValue() - targetDayOfWeek.getValue();
+            return (long) calendarDayOfWeek.getValue() - targetDayOfWeek.getValue();
         }
         
         // Return 7 days minus the difference of calendarDayOfWeek from targetDayOfWeek.
         // Days are 1-7, Monday-Sunday, respectively.
-        return 7 - (targetDayOfWeek.getValue() - calendarDayOfWeek.getValue());
+        return 7 - ((long) targetDayOfWeek.getValue() - calendarDayOfWeek.getValue());
     }
     
     
@@ -198,10 +198,10 @@ public class LocalDateUtility {
         final int       fixed             = 7 + targetDayOfWeek.getValue(); // 7 days of the week
         
         if (calendarDayOfWeek.getValue() < targetDayOfWeek.getValue() + 1) {
-            return targetDayOfWeek.getValue() - calendarDayOfWeek.getValue();
+            return (long) targetDayOfWeek.getValue() - calendarDayOfWeek.getValue();
         }
-        
-        return fixed - calendarDayOfWeek.getValue();
+    
+        return (long) fixed - calendarDayOfWeek.getValue();
     }
     
     /**
