@@ -19,6 +19,9 @@ version = '0.0.1-SNAPSHOT'
 java {
 	sourceCompatibility = JavaVersion.VERSION_11
 	targetCompatibility = JavaVersion.VERSION_11
+
+    withSourcesJar()
+    withJavadocJar()
 }
 
 repositories {
@@ -26,6 +29,11 @@ repositories {
 }
 
 dependencies {
+    api 'org.apache.commons:commons-math3:3.6.1'
+    
+	implementation 'org.apache.logging.log4j:log4j-core:2.12.1'
+
+    implementation 'com.google.guava:guava:28.0-jre'
 
 	// Testing
 	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
@@ -53,7 +61,7 @@ jacocoTestCoverageVerification {
         rule {
             enabled = false
             element = 'CLASS'
-            includes = ['org.geekcodes.*']
+            includes = ['org.gradle.*']
 
             limit {
                 counter = 'LINE'
@@ -73,6 +81,7 @@ sonarqube {
     property "sonar.projectKey", "sometowngeek_geekcodes-calendar"
     property "sonar.organization", "sometowngeek"
     property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.java.libraries", "."
   }
 }
 
