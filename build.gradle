@@ -76,6 +76,7 @@ sonarqube {
     property "sonar.projectKey", "sometowngeek_geekcodes-calendar"
     property "sonar.organization", "sometowngeek"
     property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.java.libraries", "."
   }
 }
 
