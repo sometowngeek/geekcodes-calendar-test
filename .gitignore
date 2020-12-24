@@ -73,6 +73,3 @@ build/
 
 # IntelliJ
 .idea
-
-# Temporary
-src/test/java/org/geekcodes/calendar/QuickRun.java
