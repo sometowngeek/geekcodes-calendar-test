@@ -3,6 +3,7 @@ package org.geekcodes.calendar.utilities;
 
 import org.junit.jupiter.api.*;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -102,5 +103,15 @@ class LocalDateUtilityTest {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
         System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(3, LocalDateUtility.getDaysUntilPreviousSaturday(ld));
+    }
+
+
+    /**
+     * Gets days until target day of week.
+     */
+    @Test
+    void getDaysUntil() {
+        Assertions.assertEquals(6, LocalDateUtility.getDaysUntil(localDate, DayOfWeek.TUESDAY));
+        Assertions.assertEquals(1, LocalDateUtility.getDaysUntil(localDate, DayOfWeek.THURSDAY));
     }
 }
