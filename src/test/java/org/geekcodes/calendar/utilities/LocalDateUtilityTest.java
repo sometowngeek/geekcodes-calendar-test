@@ -104,6 +104,7 @@ class LocalDateUtilityTest {
      */
     @Test
     void getDaysUntil() {
+        Assertions.assertEquals(DayOfWeek.WEDNESDAY, this.localDate.getDayOfWeek());
         Assertions.assertEquals(6, LocalDateUtility.getDaysUntil(localDate, DayOfWeek.TUESDAY));
         Assertions.assertEquals(1, LocalDateUtility.getDaysUntil(localDate, DayOfWeek.THURSDAY));
     }
