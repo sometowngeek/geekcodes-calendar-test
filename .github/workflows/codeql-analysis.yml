@@ -16,6 +16,7 @@ on:
     branches:
       - master
     paths:
+      - '**'
       - '!README.md'
   pull_request:
     types: [opened, synchronize, reopened]
