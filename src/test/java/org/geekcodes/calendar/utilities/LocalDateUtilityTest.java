@@ -35,7 +35,6 @@ class LocalDateUtilityTest {
     @Order(8)
     void getDaysUntilPreviousSunday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
-        System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(2, LocalDateUtility.getDaysUntilPreviousSunday(ld));
     }
     
@@ -46,7 +45,6 @@ class LocalDateUtilityTest {
     @Order(9)
     void getDaysUntilPreviousMonday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
-        System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(1, LocalDateUtility.getDaysUntilPreviousMonday(ld));
     }
     
@@ -57,7 +55,6 @@ class LocalDateUtilityTest {
     @Order(10)
     void getDaysUntilPreviousTuesday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
-        System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(0, LocalDateUtility.getDaysUntilPreviousTuesday(ld));
     }
     
@@ -68,7 +65,6 @@ class LocalDateUtilityTest {
     @Order(11)
     void getDaysUntilPreviousWednesday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
-        System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(6, LocalDateUtility.getDaysUntilPreviousWednesday(ld));
     }
     
@@ -79,7 +75,6 @@ class LocalDateUtilityTest {
     @Order(12)
     void getDaysUntilPreviousThursday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
-        System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(5, LocalDateUtility.getDaysUntilPreviousThursday(ld));
     }
     
@@ -90,7 +85,6 @@ class LocalDateUtilityTest {
     @Order(13)
     void getDaysUntilPreviousFriday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
-        System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(4, LocalDateUtility.getDaysUntilPreviousFriday(ld));
     }
     
@@ -101,7 +95,6 @@ class LocalDateUtilityTest {
     @Order(14)
     void getDaysUntilPreviousSaturday() {
         LocalDate ld = localDate.plusDays(6); // Add 6 days (Wednesday, 1/1/2020 -> next Tuesday 1/7/2020.
-        System.out.printf("%s %s", ld.getDayOfWeek(), ld);
         Assertions.assertEquals(3, LocalDateUtility.getDaysUntilPreviousSaturday(ld));
     }
 
