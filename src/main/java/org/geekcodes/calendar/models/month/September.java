@@ -2,6 +2,7 @@ package org.geekcodes.calendar.models.month;
 
 import org.geekcodes.calendar.utilities.LocalDateUtility;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public final class September extends AMonth implements IMonth {
     public LocalDate getLaborDay(){
         LocalDate ld = LocalDate.from(this.localDate);
     
-        long daysToAdd = LocalDateUtility.getDaysUntilMonday(this.localDate);
+        long daysToAdd = LocalDateUtility.getDaysUntil(this.localDate, DayOfWeek.MONDAY);
         return ld.plusDays(daysToAdd);
     }
     

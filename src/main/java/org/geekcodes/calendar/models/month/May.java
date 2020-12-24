@@ -2,6 +2,7 @@ package org.geekcodes.calendar.models.month;
 
 import org.geekcodes.calendar.utilities.LocalDateUtility;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class May extends AMonth implements IMonth {
      * @return the local date
      */
     public LocalDate getMemorialDay() {
-        return LocalDateUtility.getLastMondayOfTheMonth(this.localDate);
+        return LocalDateUtility.getLastDay(this.localDate, DayOfWeek.MONDAY);
     }
     
     /**

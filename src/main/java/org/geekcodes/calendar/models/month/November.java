@@ -2,6 +2,7 @@ package org.geekcodes.calendar.models.month;
 
 import org.geekcodes.calendar.utilities.LocalDateUtility;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class November extends AMonth implements IMonth {
      * @return the local date
      */
     public LocalDate getThanksgiving(){
-        return LocalDateUtility.getLastThursdayOfTheMonth(this.localDate);
+        return LocalDateUtility.getLastDay(this.localDate, DayOfWeek.THURSDAY);
     }
 
     /**
