@@ -1,15 +1,13 @@
 package org.geekcodes.calendar.utilities;
 
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.*;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * The type Local date utility test.
@@ -24,101 +22,101 @@ class LocalDateUtilityTest {
     final private LocalDate localDateSaturday = LocalDate.of(2020, Month.JANUARY, 4);
     final private LocalDate localDateSunday = LocalDate.of(2020, Month.JANUARY, 5);
 
-    LocalDate getPreviousMonday(boolean older){
-        if (older){
+    LocalDate getPreviousMonday(boolean older) {
+        if (older) {
             return localDateMonday.minusDays(7);
         }
         return localDateMonday;
     }
 
-    LocalDate getFutureMonday(){
+    LocalDate getFutureMonday() {
         return localDateMonday.plusDays(7);
     }
 
-    LocalDate getPreviousTuesday(boolean older){
-        if (!older){
+    LocalDate getPreviousTuesday(boolean older) {
+        if (!older) {
             return localDateTuesday;
         }
         return localDateTuesday.minusDays(7);
     }
 
-    LocalDate getFutureTuesday(boolean newer){
-        if (!newer){
+    LocalDate getFutureTuesday(boolean newer) {
+        if (!newer) {
             return localDateTuesday;
         }
         return localDateTuesday.plusDays(7);
     }
 
-    LocalDate getPreviousWednesday(boolean older){
-        if (!older){
+    LocalDate getPreviousWednesday(boolean older) {
+        if (!older) {
             return localDateWednesday;
         }
 
         return localDateWednesday.minusDays(7);
     }
 
-    LocalDate getFutureWednesday(boolean newer){
-        if (!newer){
+    LocalDate getFutureWednesday(boolean newer) {
+        if (!newer) {
             return localDateWednesday;
         }
 
         return localDateWednesday.plusDays(7);
     }
 
-    LocalDate getPreviousThursday(boolean older){
-        if (!older){
+    LocalDate getPreviousThursday(boolean older) {
+        if (!older) {
             return localDateThursday;
         }
 
         return localDateThursday.minusDays(7);
     }
 
-    LocalDate getFutureThursday(boolean newer){
-        if (!newer){
+    LocalDate getFutureThursday(boolean newer) {
+        if (!newer) {
             return localDateThursday;
         }
 
         return localDateThursday.plusDays(7);
     }
 
-    LocalDate getPreviousFriday(boolean older){
-        if (!older){
+    LocalDate getPreviousFriday(boolean older) {
+        if (!older) {
             return localDateFriday;
         }
 
         return localDateFriday.minusDays(7);
     }
 
-    LocalDate getFutureFriday(boolean newer){
-        if (!newer){
+    LocalDate getFutureFriday(boolean newer) {
+        if (!newer) {
             return localDateFriday;
         }
 
         return localDateFriday.plusDays(7);
     }
 
-    LocalDate getPreviousSaturday(boolean older){
-        if (!older){
+    LocalDate getPreviousSaturday(boolean older) {
+        if (!older) {
             return localDateSaturday;
         }
 
         return localDateSaturday.minusDays(7);
     }
 
-    LocalDate getFutureSaturday(boolean newer){
-        if (!newer){
+    LocalDate getFutureSaturday(boolean newer) {
+        if (!newer) {
             return localDateSaturday;
         }
 
         return localDateSaturday.plusDays(7);
     }
 
-    LocalDate getPreviousSunday(){
+    LocalDate getPreviousSunday() {
         return localDateSunday.minusDays(7);
     }
 
-    LocalDate getFutureSunday(boolean newer){
-        if (!newer){
+    LocalDate getFutureSunday(boolean newer) {
+        if (!newer) {
             return localDateSunday;
         }
 
@@ -382,10 +380,6 @@ class LocalDateUtilityTest {
         assertEquals(expectedPreviousDate, actualPreviousDate);
     }
 
-
-
-
-
     @Test
     void testToDayOfWeek_Monday_to_Wednesday() {
         final DayOfWeek expectedDayOfWeek = DayOfWeek.WEDNESDAY;
@@ -467,7 +461,7 @@ class LocalDateUtilityTest {
     }
 
     @Test
-    void testToDayOfWeek_Saturday_to_Wednesday(){
+    void testToDayOfWeek_Saturday_to_Wednesday() {
         final DayOfWeek expectedDayOfWeek = DayOfWeek.WEDNESDAY;
 
         // Testing with Saturday (1/4/2020)
@@ -497,10 +491,6 @@ class LocalDateUtilityTest {
         assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
         assertEquals(expectedPreviousDate, actualPreviousDate);
     }
-
-
-
-
 
     @Test
     void testToDayOfWeek_Monday_to_Thursday() {
@@ -614,10 +604,6 @@ class LocalDateUtilityTest {
         assertEquals(expectedPreviousDate, actualPreviousDate);
     }
 
-
-
-
-
     @Test
     void testToDayOfWeek_Monday_to_Friday() {
         final DayOfWeek expectedDayOfWeek = DayOfWeek.FRIDAY;
@@ -729,10 +715,6 @@ class LocalDateUtilityTest {
         assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
         assertEquals(expectedPreviousDate, actualPreviousDate);
     }
-
-
-
-
 
     @Test
     void testToDayOfWeek_Monday_to_Saturday() {
@@ -846,10 +828,6 @@ class LocalDateUtilityTest {
         assertEquals(expectedPreviousDate, actualPreviousDate);
     }
 
-
-
-
-
     @Test
     void testToDayOfWeek_Monday_to_Sunday() {
         final DayOfWeek expectedDayOfWeek = DayOfWeek.SUNDAY;
@@ -961,11 +939,6 @@ class LocalDateUtilityTest {
         assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
         assertEquals(expectedPreviousDate, actualPreviousDate);
     }
-
-
-
-
-
 
     @Test
     void testGetLastDay() {
