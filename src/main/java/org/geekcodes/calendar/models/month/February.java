@@ -74,7 +74,7 @@ public class February extends AMonth implements IMonth {
      * @return the presidents day
      */
     public LocalDate getPresidentsDay() {
-        long daysToAdd = LocalDateUtility.getDaysUntil(this.localDate, DayOfWeek.MONDAY);
+        long daysToAdd = LocalDateUtility.getDaysUntil(this.localDate, DayOfWeek.MONDAY, false);
         return this.localDate.plusDays(daysToAdd + 14);
     }
     

@@ -70,7 +70,7 @@ public final class September extends AMonth implements IMonth {
     public LocalDate getLaborDay(){
         LocalDate ld = LocalDate.from(this.localDate);
     
-        long daysToAdd = LocalDateUtility.getDaysUntil(this.localDate, DayOfWeek.MONDAY);
+        long daysToAdd = LocalDateUtility.getDaysUntil(this.localDate, DayOfWeek.MONDAY, false);
         return ld.plusDays(daysToAdd);
     }
     

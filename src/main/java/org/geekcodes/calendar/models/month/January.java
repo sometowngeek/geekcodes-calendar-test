@@ -95,7 +95,7 @@ public final class January extends AMonth implements IMonth {
      * @return LocalDate the date of MLK Jr day.
      */
     public LocalDate getMartinLutherKingJrDate() {
-        long days = LocalDateUtility.getDaysUntil(this.localDate, DayOfWeek.MONDAY);
+        long days = LocalDateUtility.getDaysUntil(this.localDate, DayOfWeek.MONDAY, false);
         return this.localDate.plusDays(days + 14);
     }
     

@@ -16,18 +16,18 @@ abstract class AMonth implements IMonth {
     }
     
     /**
-     * Get calendar calendar.
+     * Get LocalDate.
      *
-     * @return the calendar
+     * @return the LocalDate
      */
     protected final LocalDate getLocalDate() {
         return this.localDate;
     }
     
     /**
-     * Sets calendar.
+     * Sets LocalDate.
      *
-     * @param localDate the calendar
+     * @param localDate the LocalDate
      */
     protected final void setLocalDate(LocalDate localDate) {
         this.localDate = LocalDate.ofEpochDay(localDate.toEpochDay());

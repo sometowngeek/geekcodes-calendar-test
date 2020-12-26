@@ -5,6 +5,9 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type June.
+ */
 public class June extends AMonth implements IMonth {
     private June() {
         super(Month.JUNE);
