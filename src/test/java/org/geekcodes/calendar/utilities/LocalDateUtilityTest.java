@@ -97,6 +97,22 @@ class LocalDateUtilityTest {
         return localDateFriday.plusDays(7);
     }
 
+    LocalDate getPreviousSaturday(boolean older){
+        if (!older){
+            return localDateSaturday;
+        }
+
+        return localDateSaturday.minusDays(7);
+    }
+
+    LocalDate getFutureSaturday(boolean newer){
+        if (!newer){
+            return localDateSaturday;
+        }
+
+        return localDateSaturday.plusDays(7);
+    }
+
     /**
      * Sets up.
      */
@@ -697,6 +713,122 @@ class LocalDateUtilityTest {
         assertEquals(expectedFutureDate, actualFutureDate);
 
         LocalDate expectedPreviousDate = getPreviousFriday(false);
+        LocalDate actualPreviousDate = LocalDateUtility.toDayOfWeek(localDateSunday, expectedDayOfWeek, true);
+        assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
+        assertEquals(expectedPreviousDate, actualPreviousDate);
+    }
+
+
+
+
+
+    @Test
+    void testToDayOfWeek_Monday_to_Saturday() {
+        final DayOfWeek expectedDayOfWeek = DayOfWeek.SATURDAY;
+
+        // Testing with Monday (12/30/2019)
+        LocalDate expectedFutureDate = getFutureSaturday(false);
+        LocalDate actualFutureDate = LocalDateUtility.toDayOfWeek(localDateMonday, expectedDayOfWeek, false);
+        assertEquals(expectedDayOfWeek, actualFutureDate.getDayOfWeek());
+        assertEquals(expectedFutureDate, actualFutureDate);
+
+        LocalDate expectedPreviousDate = getPreviousSaturday(true);
+        LocalDate actualPreviousDate = LocalDateUtility.toDayOfWeek(localDateMonday, expectedDayOfWeek, true);
+        assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
+        assertEquals(expectedPreviousDate, actualPreviousDate);
+    }
+
+    @Test
+    void testToDayOfWeek_Tuesday_to_Saturday() {
+        final DayOfWeek expectedDayOfWeek = DayOfWeek.SATURDAY;
+
+        // Testing with Tuesday (12/31/2019)
+        LocalDate expectedFutureDate = getFutureSaturday(false);
+        LocalDate actualFutureDate = LocalDateUtility.toDayOfWeek(localDateTuesday, expectedDayOfWeek, false);
+        assertEquals(expectedDayOfWeek, actualFutureDate.getDayOfWeek());
+        assertEquals(expectedFutureDate, actualFutureDate);
+
+        LocalDate expectedPreviousDate = getPreviousSaturday(true);
+        LocalDate actualPreviousDate = LocalDateUtility.toDayOfWeek(localDateTuesday, expectedDayOfWeek, true);
+        assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
+        assertEquals(expectedPreviousDate, actualPreviousDate);
+    }
+
+    @Test
+    void testToDayOfWeek_Wednesday_to_Saturday() {
+        final DayOfWeek expectedDayOfWeek = DayOfWeek.SATURDAY;
+
+        // Testing with Wednesday (1/1/2020)
+        LocalDate expectedFutureDate = getFutureSaturday(false);
+        LocalDate actualFutureDate = LocalDateUtility.toDayOfWeek(localDateWednesday, expectedDayOfWeek, false);
+        assertEquals(expectedDayOfWeek, actualFutureDate.getDayOfWeek());
+        assertEquals(expectedFutureDate, actualFutureDate);
+
+        LocalDate expectedPreviousDate = getPreviousSaturday(true);
+        LocalDate actualPreviousDate = LocalDateUtility.toDayOfWeek(localDateWednesday, expectedDayOfWeek, true);
+        assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
+        assertEquals(expectedPreviousDate, actualPreviousDate);
+    }
+
+    @Test
+    void testToDayOfWeek_Thursday_to_Saturday() {
+        final DayOfWeek expectedDayOfWeek = DayOfWeek.SATURDAY;
+
+        // Testing with Wednesday (1/1/2020)
+        LocalDate expectedFutureDate = getFutureSaturday(false);
+        LocalDate actualFutureDate = LocalDateUtility.toDayOfWeek(localDateThursday, expectedDayOfWeek, false);
+        assertEquals(expectedDayOfWeek, actualFutureDate.getDayOfWeek());
+        assertEquals(expectedFutureDate, actualFutureDate);
+
+        LocalDate expectedPreviousDate = getPreviousSaturday(true);
+        LocalDate actualPreviousDate = LocalDateUtility.toDayOfWeek(localDateThursday, expectedDayOfWeek, true);
+        assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
+        assertEquals(expectedPreviousDate, actualPreviousDate);
+    }
+
+    @Test
+    void testToDayOfWeek_Friday_to_Saturday() {
+        final DayOfWeek expectedDayOfWeek = DayOfWeek.SATURDAY;
+
+        // Testing with Wednesday (1/1/2020)
+        LocalDate expectedFutureDate = getFutureSaturday(false);
+        LocalDate actualFutureDate = LocalDateUtility.toDayOfWeek(localDateFriday, expectedDayOfWeek, false);
+        assertEquals(expectedDayOfWeek, actualFutureDate.getDayOfWeek());
+        assertEquals(expectedFutureDate, actualFutureDate);
+
+        LocalDate expectedPreviousDate = getPreviousSaturday(true);
+        LocalDate actualPreviousDate = LocalDateUtility.toDayOfWeek(localDateFriday, expectedDayOfWeek, true);
+        assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
+        assertEquals(expectedPreviousDate, actualPreviousDate);
+    }
+
+    @Test
+    void testToDayOfWeek_Saturday_to_Saturday() {
+        final DayOfWeek expectedDayOfWeek = DayOfWeek.SATURDAY;
+
+        // Testing with Wednesday (1/1/2020)
+        LocalDate expectedFutureDate = getFutureSaturday(true);
+        LocalDate actualFutureDate = LocalDateUtility.toDayOfWeek(localDateSaturday, expectedDayOfWeek, false);
+        assertEquals(expectedDayOfWeek, actualFutureDate.getDayOfWeek());
+        assertEquals(expectedFutureDate, actualFutureDate);
+
+        LocalDate expectedPreviousDate = getPreviousSaturday(true);
+        LocalDate actualPreviousDate = LocalDateUtility.toDayOfWeek(localDateSaturday, expectedDayOfWeek, true);
+        assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
+        assertEquals(expectedPreviousDate, actualPreviousDate);
+    }
+
+    @Test
+    void testToDayOfWeek_Sunday_to_Saturday() {
+        final DayOfWeek expectedDayOfWeek = DayOfWeek.SATURDAY;
+
+        // Testing with Wednesday (1/1/2020)
+        LocalDate expectedFutureDate = getFutureSaturday(true);
+        LocalDate actualFutureDate = LocalDateUtility.toDayOfWeek(localDateSunday, expectedDayOfWeek, false);
+        assertEquals(expectedDayOfWeek, actualFutureDate.getDayOfWeek());
+        assertEquals(expectedFutureDate, actualFutureDate);
+
+        LocalDate expectedPreviousDate = getPreviousSaturday(false);
         LocalDate actualPreviousDate = LocalDateUtility.toDayOfWeek(localDateSunday, expectedDayOfWeek, true);
         assertEquals(expectedDayOfWeek, actualPreviousDate.getDayOfWeek());
         assertEquals(expectedPreviousDate, actualPreviousDate);
