@@ -969,5 +969,10 @@ class LocalDateUtilityTest {
 
     @Test
     void testGetLastDay() {
+
+        LocalDate actualLastDay = LocalDateUtility.getLastDay(localDateWednesday, DayOfWeek.MONDAY);
+        LocalDate expectedLastDay = LocalDate.of(2020, Month.JANUARY, 27);
+
+        assertEquals(expectedLastDay, actualLastDay);
     }
 }
