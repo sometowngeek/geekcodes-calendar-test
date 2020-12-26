@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - rename_functions
     paths:
       - '**'
       - '!README.md'
